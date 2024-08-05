@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-</head>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    </head>
 <body>
     <div id="controls">
         <input type="text" id="city-input" placeholder="Enter city">
         <button id="search-button">Search</button>
         <button id="current-location-button">Use Current Location</button>
-        <div class="theme-switch">
-            <span class="theme-label" id="light-mode-label">Light Mode</span>
+        <span>Light Mode</span>
+        <label class="switch">
             <input type="checkbox" id="theme-toggle">
-            <label for="theme-toggle" class="slider round"></label>
-            <span class="theme-label" id="dark-mode-label">Dark Mode</span>
-        </div>
+            <span class="slider"></span>
+        </label>
+        <span>Dark Mode</span>
         <div id="language-switcher">
             <label>
-                <input type="radio" name="language" value="en"> English
+                <input type="radio" name="language" value="en" checked> English
             </label>
             <label>
                 <input type="radio" name="language" value="ru"> Русский
@@ -35,7 +33,7 @@
     <div id="forecast-container" class="hidden"></div>
     <div id="map" class="hidden"></div>
     <div id="search-history" class="hidden"></div>
+
     <script src="main.js"></script>
 </body>
-
 </html>
