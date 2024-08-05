@@ -215,7 +215,7 @@ input:checked + .slider:before {
   width: 80%;
   max-width: 600px;
   text-align: center;
-  transition: background 0.5s ease, color 0.5s ease, transform 0.4s ease;
+  transition: background 0.5s ease, color 0.5s ease, transform 0.3s ease;
   transform: translateY(20px);
 }
 
