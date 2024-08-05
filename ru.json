@@ -1,0 +1,17 @@
+{
+    "search_placeholder": "Введите город",
+    "search_button": "Поиск",
+    "current_location_button": "Использовать текущее местоположение",
+    "loading": "Загрузка...",
+    "temperature": "Температура",
+    "weather": "Погода",
+    "humidity": "Влажность",
+    "wind_speed": "Скорость ветра",
+    "sunrise": "Восход",
+    "sunset": "Закат",
+    "forecast": "Прогноз на 5 дней",
+    "geolocation_not_supported": "Геолокация не поддерживается этим браузером.",
+    "error": "Ошибка",
+    "could_not_fetch": "Не удалось получить данные. Пожалуйста, попробуйте позже."
+  }
+  

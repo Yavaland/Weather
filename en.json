@@ -1,0 +1,17 @@
+{
+    "search_placeholder": "Enter city",
+    "search_button": "Search",
+    "current_location_button": "Use Current Location",
+    "loading": "Loading...",
+    "temperature": "Temperature",
+    "weather": "Weather",
+    "humidity": "Humidity",
+    "wind_speed": "Wind Speed",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "forecast": "5-Day Forecast",
+    "geolocation_not_supported": "Geolocation is not supported by this browser.",
+    "error": "Error",
+    "could_not_fetch": "Could not fetch data. Please try again later."
+  }
+  

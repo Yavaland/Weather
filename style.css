@@ -1,0 +1,253 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Темная тема */
+.theme-dark {
+  background: #121212;
+  color: #ffffff;
+}
+
+/* Скрытие элементов */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hidden.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Индикатор загрузки */
+#loading {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+  margin-top: 20px;
+  transition: color 0.3s ease;
+}
+
+.theme-dark #loading {
+  color: #2196f3;
+}
+
+/* Стиль для контролов (поиск, кнопки, переключатель темы) */
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Стиль для переключателя языка */
+#language-switcher {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+}
+
+#language-switcher label {
+  cursor: pointer;
+}
+
+/* Стиль для текстового поля поиска */
+input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: border 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.theme-dark input[type="text"] {
+  border: 1px solid #444;
+  background: #333;
+  color: #fff;
+}
+
+/* Стиль для кнопок */
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+.theme-dark button {
+  background: #444;
+  color: #fff;
+}
+
+.theme-dark button:hover {
+  background: #222;
+}
+
+/* Стиль для блока текущей погоды и прогноза */
+#weather-info,
+#forecast-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  transition: background 0.5s ease, color 0.5s ease, transform 0.3s ease;
+  transform: translateY(20px);
+}
+
+.theme-dark #weather-info,
+.theme-dark #forecast-container {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+.weather-info.show,
+.forecast-container.show {
+  transform: translateY(0);
+}
+
+.forecast-day {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 10px 0;
+  transition: border-color 0.3s ease;
+}
+
+.theme-dark .forecast-day {
+  border-top: 1px solid #444;
+}
+
+/* Стиль для карты */
+#map {
+  height: 400px;
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.95);
+}
+
+.map.show {
+  transform: scale(1);
+}
+
+/* Стиль для переключателя темы */
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-switch .theme-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: relative;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: transform 0.4s ease;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.theme-dark .theme-switch .theme-label {
+  color: #ddd;
+}
+
+/* Стиль для блока истории поиска */
+#search-history {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  transition: background 0.5s ease, color 0.5s ease, transform 0.3s ease;
+  transform: translateY(20px);
+}
+
+.theme-dark #search-history {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+.search-history.show {
+  transform: translateY(0);
+}
+
+/* Стиль для элементов истории поиска */
+.history-item {
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.theme-dark .history-item {
+  background: #333;
+  color: #ddd;
+}
+
+.history-item:hover {
+  background: #e0e0e0;
+  transform: scale(1.02);
+}
+
+.theme-dark .history-item:hover {
+  background: #444;
+}
