@@ -11,8 +11,8 @@ body {
 
 /* Темная тема */
 .theme-dark {
-  background: #121212;
-  color: #ffffff;
+  background: #000;
+  color: #fff;
 }
 
 /* Скрытие элементов */
