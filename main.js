@@ -91,10 +91,8 @@ async function getWeatherOrForecast(cityOrCoords, type = "weather") {
   if (data) {
     if (type === "weather") {
       displayWeather(data);
-      if (typeof cityOrCoords === "string") {
-        const { coord } = data;
-        showMap(coord.lat, coord.lon);
-      }
+      const { coord } = data;
+      showMap(coord.lat, coord.lon); // Обновляем карту с новыми координатами
     } else {
       displayForecast(data);
     }
