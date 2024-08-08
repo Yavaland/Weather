@@ -1,4 +1,3 @@
-/* Основные стили для всего приложения */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -41,7 +40,7 @@ body {
   color: #2196f3;
 }
 
-/* Контролы: поиск, кнопки, переключатель темы */
+/* Стиль для контролов (поиск, кнопки, переключатель темы) */
 #controls {
   display: flex;
   justify-content: center;
@@ -51,7 +50,7 @@ body {
   margin-top: 20px;
 }
 
-/* Переключатель темы */
+/* Стиль для переключателя темы */
 .switch {
   position: relative;
   display: inline-block;
@@ -73,7 +72,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 34px;
 }
 
@@ -85,12 +84,12 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  transition: .4s;
+  transition: 0.4s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:checked + .slider:before {
@@ -101,7 +100,7 @@ input:checked + .slider:before {
   color: #ddd;
 }
 
-/* Переключатель языка */
+/* Стиль для переключателя языка */
 #language-switcher {
   display: flex;
   gap: 10px;
@@ -111,7 +110,7 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-/* Текстовое поле поиска */
+/* Стиль для текстового поля поиска */
 input[type="text"] {
   padding: 10px;
   border-radius: 5px;
@@ -126,7 +125,7 @@ input[type="text"] {
   color: #fff;
 }
 
-/* Кнопки */
+/* Стиль для кнопок */
 button {
   padding: 10px;
   border: none;
@@ -152,7 +151,7 @@ button:hover {
   background: #222;
 }
 
-/* Блок текущей погоды и прогноза */
+/* Стиль для блока текущей погоды и прогноза */
 #weather-info,
 #forecast-container {
   background: #fff;
@@ -178,7 +177,6 @@ button:hover {
   transform: translateY(0);
 }
 
-/* Прогноз погоды на несколько дней */
 .forecast-day {
   display: flex;
   justify-content: space-between;
@@ -192,7 +190,7 @@ button:hover {
   border-top: 1px solid #444;
 }
 
-/* Карта */
+/* Стиль для карты */
 #map {
   height: 400px;
   width: 80%;
@@ -206,7 +204,7 @@ button:hover {
   transform: scale(1);
 }
 
-/* История поиска */
+/* Стиль для блока истории поиска */
 #search-history {
   background: #fff;
   padding: 20px;
@@ -229,7 +227,7 @@ button:hover {
   transform: translateY(0);
 }
 
-/* Элементы истории поиска */
+/* Стиль для элементов истории поиска */
 .history-item {
   background: #f9f9f9;
   padding: 10px;

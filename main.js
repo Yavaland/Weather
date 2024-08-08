@@ -1,8 +1,6 @@
 const apiKey = "a46784892df248d9c06372b7c2f3dd23";
 const searchButton = document.getElementById("search-button");
-const currentLocationButton = document.getElementById(
-  "current-location-button"
-);
+const currentLocationButton = document.getElementById("current-location-button");
 const cityInput = document.getElementById("city-input");
 const weatherInfo = document.getElementById("weather-info");
 const forecastContainer = document.getElementById("forecast-container");
@@ -13,6 +11,7 @@ const loadingIndicator = document.getElementById("loading");
 const languageSelector = document.querySelectorAll('input[name="language"]');
 let map;
 let layerGroup;
+let weatherLayer;
 let translations = {};
 
 // Функция для отображения индикатора загрузки
@@ -112,19 +111,19 @@ function displayWeather(data) {
   const { name, main, weather, wind, sys } = data;
   const iconUrl = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
   weatherInfo.innerHTML = `
-        <h2>${name}</h2>
-        <img src="${iconUrl}" alt="${weather[0].description}">
-        <p>${translations.temperature || "Temperature"}: ${main.temp} °C</p>
-        <p>${translations.weather || "Weather"}: ${weather[0].description}</p>
-        <p>${translations.humidity || "Humidity"}: ${main.humidity}%</p>
-        <p>${translations.wind_speed || "Wind Speed"}: ${wind.speed} m/s</p>
-        <p>${translations.sunrise || "Sunrise"}: ${new Date(
-    sys.sunrise * 1000
-  ).toLocaleTimeString()}</p>
-        <p>${translations.sunset || "Sunset"}: ${new Date(
-    sys.sunset * 1000
-  ).toLocaleTimeString()}</p>
-    `;
+    <h2>${name}</h2>
+    <img src="${iconUrl}" alt="${weather[0].description}">
+    <p>${translations.temperature || "Temperature"}: ${main.temp} °C</p>
+    <p>${translations.weather || "Weather"}: ${weather[0].description}</p>
+    <p>${translations.humidity || "Humidity"}: ${main.humidity}%</p>
+    <p>${translations.wind_speed || "Wind Speed"}: ${wind.speed} m/s</p>
+    <p>${translations.sunrise || "Sunrise"}: ${new Date(
+      sys.sunrise * 1000
+    ).toLocaleTimeString()}</p>
+    <p>${translations.sunset || "Sunset"}: ${new Date(
+      sys.sunset * 1000
+    ).toLocaleTimeString()}</p>
+  `;
   weatherInfo.classList.add("show");
 }
 
@@ -138,17 +137,17 @@ function displayForecast(data) {
     const date = new Date(day.dt * 1000).toLocaleDateString();
     const iconUrl = `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`;
     forecastContainer.innerHTML += `
-            <div class="forecast-day">
-                <p>${date}</p>
-                <img src="${iconUrl}" alt="${day.weather[0].description}">
-                <p>${translations.temperature || "Temperature"}: ${
-      day.main.temp
-    } °C</p>
-                <p>${translations.weather || "Weather"}: ${
-      day.weather[0].description
-    }</p>
-            </div>
-        `;
+      <div class="forecast-day">
+        <p>${date}</p>
+        <img src="${iconUrl}" alt="${day.weather[0].description}">
+        <p>${translations.temperature || "Temperature"}: ${
+          day.main.temp
+        } °C</p>
+        <p>${translations.weather || "Weather"}: ${
+          day.weather[0].description
+        }</p>
+      </div>
+    `;
   }
   forecastContainer.classList.add("show");
 }
@@ -163,19 +162,24 @@ function showMapWithWeatherLayer(lat, lon) {
     layerGroup = L.layerGroup().addTo(map);
   } else {
     map.setView([lat, lon], 13);
-    layerGroup.clearLayers();
+    layerGroup.clearLayers(); // Очистка старых слоев
   }
 
-  L.marker([lat, lon]).addTo(layerGroup);
+  // Удаление старого погодного слоя, если он есть
+  if (weatherLayer) {
+    map.removeLayer(weatherLayer);
+  }
 
-  // Добавление погодного слоя
-  const weatherLayer = L.tileLayer(
+  // Добавление нового слоя с погодой
+  weatherLayer = L.tileLayer(
     `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`,
     {
       opacity: 0.5,
     }
   );
   weatherLayer.addTo(map);
+
+  L.marker([lat, lon]).addTo(layerGroup);
 
   mapContainer.classList.add("show");
 }
@@ -236,6 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const { latitude, longitude } = position.coords;
           getWeatherOrForecast({ latitude, longitude }, "weather");
           getWeatherOrForecast({ latitude, longitude }, "forecast");
+          showMapWithWeatherLayer(latitude, longitude); // Добавить вызов функции для отображения карты
         },
         (error) => {
           showError(error);
