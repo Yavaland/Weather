@@ -1,3 +1,4 @@
+/* Основные стили для всего приложения */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -40,7 +41,7 @@ body {
   color: #2196f3;
 }
 
-/* Стиль для контролов (поиск, кнопки, переключатель темы) */
+/* Контролы: поиск, кнопки, переключатель темы */
 #controls {
   display: flex;
   justify-content: center;
@@ -50,7 +51,7 @@ body {
   margin-top: 20px;
 }
 
-/* Стиль для переключателя темы */
+/* Переключатель темы */
 .switch {
   position: relative;
   display: inline-block;
@@ -100,7 +101,7 @@ input:checked + .slider:before {
   color: #ddd;
 }
 
-/* Стиль для переключателя языка */
+/* Переключатель языка */
 #language-switcher {
   display: flex;
   gap: 10px;
@@ -110,7 +111,7 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-/* Стиль для текстового поля поиска */
+/* Текстовое поле поиска */
 input[type="text"] {
   padding: 10px;
   border-radius: 5px;
@@ -125,7 +126,7 @@ input[type="text"] {
   color: #fff;
 }
 
-/* Стиль для кнопок */
+/* Кнопки */
 button {
   padding: 10px;
   border: none;
@@ -151,7 +152,7 @@ button:hover {
   background: #222;
 }
 
-/* Стиль для блока текущей погоды и прогноза */
+/* Блок текущей погоды и прогноза */
 #weather-info,
 #forecast-container {
   background: #fff;
@@ -177,6 +178,7 @@ button:hover {
   transform: translateY(0);
 }
 
+/* Прогноз погоды на несколько дней */
 .forecast-day {
   display: flex;
   justify-content: space-between;
@@ -190,7 +192,7 @@ button:hover {
   border-top: 1px solid #444;
 }
 
-/* Стиль для карты */
+/* Карта */
 #map {
   height: 400px;
   width: 80%;
@@ -204,7 +206,7 @@ button:hover {
   transform: scale(1);
 }
 
-/* Стиль для блока истории поиска */
+/* История поиска */
 #search-history {
   background: #fff;
   padding: 20px;
@@ -227,7 +229,7 @@ button:hover {
   transform: translateY(0);
 }
 
-/* Стиль для элементов истории поиска */
+/* Элементы истории поиска */
 .history-item {
   background: #f9f9f9;
   padding: 10px;

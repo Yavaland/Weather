@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
-
 <body>
     <div id="controls">
         <input type="text" id="city-input" placeholder="Enter city">
@@ -33,10 +31,9 @@
     <div id="loading" class="hidden">Loading...</div>
     <div id="weather-info" class="hidden"></div>
     <div id="forecast-container" class="hidden"></div>
-    <div id="map" class="hidden"></div>
+    <div id="map" class="hidden" style="height: 500px;"></div>
     <div id="search-history" class="hidden"></div>
 
     <script src="main.js"></script>
 </body>
-
 </html>
